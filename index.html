@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f3">
+  <meta name="description" content="Find your people, discover local experiences, and book your next memorable day with Gatherly.">
+  <title>Gatherly — Find your people</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Gatherly home"><span class="brand-mark">g</span>gatherly<span class="brand-period">.</span></a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#discover">Discover</a>
+      <a class="nav-link" href="#categories">Categories</a>
+      <a class="nav-link" href="#how-it-works">How it works</a>
+    </nav>
+    <div class="header-actions"><button class="host-link" id="host-button">Host an event <span>↗</span></button><button class="avatar-button" id="account-button" aria-label="Your account">A</button></div>
+  </header>
+
+  <main id="home">
+    <section class="hero" id="discover">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR CITY, YOUR PEOPLE</div>
+        <h1>Make room for<br><em>something good.</em></h1>
+        <p class="hero-description">Little plans make the best stories. Find your next favorite thing to do, right around the corner.</p>
+        <div class="hero-proof"><div class="avatar-stack"><span>J</span><span>M</span><span>S</span><span>+</span></div><p><strong>12,000+</strong> people found their thing this month</p></div>
+      </div>
+      <div class="hero-art" aria-label="Friends enjoying an outdoor gathering">
+        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1100&q=85" alt="Friends sharing a meal together outdoors">
+        <div class="floating-note"><span class="note-icon">✳</span><div><strong>Good things happen</strong><small>when we get together</small></div></div>
+        <div class="hero-sticker">GO<br>OUT<br>THERE <span>↗</span></div>
+      </div>
+      <div class="search-panel" role="search">
+        <label class="search-field"><span class="field-icon">⌕</span><span class="field-copy"><small>I'm looking for</small><input id="search-input" type="search" placeholder="A pottery class, live music…" autocomplete="off"></span></label>
+        <span class="search-divider"></span>
+        <label class="search-field location-field"><span class="field-icon">⌖</span><span class="field-copy"><small>Where</small><select id="location-filter" aria-label="Choose a city"><option value="all">Anywhere in the city</option><option>Bengaluru</option><option>Mumbai</option><option>Chennai</option><option>Pune</option><option>Delhi</option></select></span></label>
+        <button class="search-button" id="search-button">Find something fun <span>→</span></button>
+      </div>
+      <div class="hero-scribble" aria-hidden="true">good times <span>↙</span></div>
+    </section>
+
+    <section class="category-section section-wrap" id="categories">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">PICK YOUR MOOD</p><h2>What sounds like you?</h2></div><a class="text-link" href="#events">See all events <span>↗</span></a></div>
+      <div class="category-list" role="group" aria-label="Filter events by category">
+        <button class="category-chip selected" data-category="All"><span>✳</span> Everything <b>08</b></button>
+        <button class="category-chip" data-category="Food"><span>♨</span> Food & drink <b>02</b></button>
+        <button class="category-chip" data-category="Creative"><span>✿</span> Get creative <b>02</b></button>
+        <button class="category-chip" data-category="Music"><span>♫</span> Live & local <b>02</b></button>
+        <button class="category-chip" data-category="Outdoors"><span>☼</span> Outdoors <b>02</b></button>
+      </div>
+    </section>
+
+    <section class="events-section section-wrap" id="events">
+      <div class="section-heading events-heading"><div><p class="eyebrow">A GOOD PLACE TO START</p><h2>Plans worth making.</h2><p class="section-subtitle">Handpicked happenings, made better together.</p></div><div class="sort-wrap"><label for="sort-select">Sort by</label><select id="sort-select"><option value="soonest">Coming up</option><option value="price-low">Price: low to high</option><option value="popular">Most popular</option></select></div></div>
+      <div class="event-grid" id="event-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden><div>☁</div><h3>No plans found just yet.</h3><p>Try another search or choose a different mood.</p><button class="outline-button" id="reset-filters">Show me everything</button></div>
+      <div class="show-more-wrap"><button class="outline-button" id="show-more">You have great taste <span>✳</span></button></div>
+    </section>
+
+    <section class="host-banner section-wrap" id="how-it-works">
+      <div class="host-banner-image"><img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=85" alt="People enjoying a creative community event"></div>
+      <div class="host-banner-copy"><p class="eyebrow">FOR THE PEOPLE WHO MAKE IT HAPPEN</p><h2>Got a thing people<br>would love?</h2><p>Bring your class, supper club, neighborhood walk, or big idea to a community that can't wait to show up.</p><button class="dark-button" id="host-cta">Let's make it happen <span>↗</span></button></div>
+      <span class="banner-sparkle">✳</span>
+    </section>
+
+    <section class="newsletter section-wrap"><div><p class="eyebrow">A LITTLE GOOD IN YOUR INBOX</p><h2>Weekends, sorted.</h2><p>Fresh finds from your city, once a week. No noise.</p></div><form id="newsletter-form" class="newsletter-form"><label class="sr-only" for="email-input">Email address</label><input id="email-input" type="email" placeholder="Your email address" required><button type="submit">Count me in <span>→</span></button><small id="newsletter-message" aria-live="polite"></small></form></section>
+  </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">g</span>gatherly<span class="brand-period">.</span></a><p>Good things happen when we get together.</p><div class="footer-bottom"><span>© 2026 Gatherly. Find your people.</span><div><a href="#discover">Discover</a><a href="#categories">Categories</a><a href="#how-it-works">Become a host</a></div></div></footer>
+
+  <dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-title"><button class="dialog-close" id="close-dialog" aria-label="Close">×</button><div class="dialog-art" id="dialog-art"></div><div class="dialog-content"><p class="eyebrow" id="dialog-category"></p><h2 id="booking-title">Book your spot</h2><p class="dialog-event-name" id="dialog-event-name"></p><div class="booking-meta" id="dialog-meta"></div><form id="booking-form"><label for="guest-name">Your name</label><input id="guest-name" name="name" placeholder="Name on the booking" required><label for="guest-email">Email address</label><input id="guest-email" name="email" type="email" placeholder="you@example.com" required><div class="booking-bottom"><div class="quantity-control"><button type="button" id="qty-minus" aria-label="Remove one ticket">−</button><span id="ticket-count">1</span><button type="button" id="qty-plus" aria-label="Add one ticket">+</button><small>spots</small></div><button class="dark-button" type="submit">Reserve <span id="booking-total"></span> →</button></div></form><p class="booking-note">This demo saves your reservation in this browser. No payment required.</p><div class="booking-success" id="booking-success" hidden><span>✳</span><h3>You're on the list!</h3><p id="success-message"></p><button type="button" class="outline-button" id="done-button">Lovely, thanks</button></div></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
